@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import HolographicCard from '@/components/HolographicCard'
 import styles from './TicketDemo.module.scss'
 
@@ -40,8 +41,8 @@ export default function TicketDemo() {
           
           <div className={styles.detailRow}>
             <div className={styles.djImages}>
-              <img src="/ilter.png" alt="DJ 1" className={styles.djImage} />
-              <img src="/emre.png" alt="DJ 2" className={styles.djImage} />
+              <Image src="/ilter.png" alt="DJ 1" className={styles.djImage} width={100} height={50} />
+              <Image src="/emre.png" alt="DJ 2" className={styles.djImage} width={100} height={50} />
             </div>
           </div>
         </div>
