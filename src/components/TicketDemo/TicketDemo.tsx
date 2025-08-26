@@ -44,15 +44,15 @@ export default function TicketDemo() {
                 src="/ilter.png"
                 alt="DJ 1"
                 className={styles.djImage}
-                width={100}
-                height={50}
+                width={70}
+                height={35}
               />
               <Image
                 src="/emre.png"
                 alt="DJ 2"
                 className={styles.djImage}
-                width={100}
-                height={50}
+                width={70}
+                height={35}
               />
             </div>
           </div>
