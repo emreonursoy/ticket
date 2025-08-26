@@ -1,10 +1,49 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 import HolographicCard from '@/components/HolographicCard';
 import styles from './TicketDemo.module.scss';
 
+type AssetName = 'monalisaVideo' | 'eslenemreVideo' | 'ilterImage' | 'emreImage';
+
 export default function TicketDemo() {
+  const [isLoading, setIsLoading] = useState(true);
+  const loadedAssetsRef = useRef<Record<AssetName, boolean>>({
+    monalisaVideo: false,
+    eslenemreVideo: false,
+    ilterImage: false,
+    emreImage: false
+  });
+
+  const checkAllAssetsLoaded = () => {
+    const allLoaded = Object.values(loadedAssetsRef.current).every(loaded => loaded);
+    if (allLoaded) {
+      setIsLoading(false);
+    }
+  };
+
+  const handleAssetLoad = (assetName: AssetName) => {
+    if (!loadedAssetsRef.current[assetName]) {
+      loadedAssetsRef.current[assetName] = true;
+      checkAllAssetsLoaded();
+    }
+  };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      loadedAssetsRef.current = {
+        monalisaVideo: true,
+        eslenemreVideo: true,
+        ilterImage: true,
+        emreImage: true
+      };
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   const ticketFrontContent = (
     <div className={styles.ticketLayout}>
       <div className={styles.leftSection}>
@@ -15,7 +54,11 @@ export default function TicketDemo() {
           muted
           playsInline
           width="100%"
-          height="100%"
+          height="100%"  
+          onCanPlayThrough={() => handleAssetLoad('monalisaVideo')}
+          onError={(e) => {
+            handleAssetLoad('monalisaVideo');
+          }}
         >
           <source src="/monalisa.mp4" type="video/mp4" />
         </video>
@@ -46,6 +89,8 @@ export default function TicketDemo() {
                 className={styles.djImage}
                 width={70}
                 height={35}
+                onLoad={() => handleAssetLoad('ilterImage')}
+                onError={() => handleAssetLoad('ilterImage')}
               />
               <Image
                 src="/emre.png"
@@ -53,6 +98,8 @@ export default function TicketDemo() {
                 className={styles.djImage}
                 width={70}
                 height={35}
+                onLoad={() => handleAssetLoad('emreImage')}
+                onError={() => handleAssetLoad('emreImage')}
               />
             </div>
           </div>
@@ -61,9 +108,9 @@ export default function TicketDemo() {
         <div className={styles.ticketPass}>
           <div className={styles.equalizer}>
             {Array.from({ length: 40 }, (_, i) => {
-              const randomDuration = Math.random() * 1 + 0.8; // 0.8s to 1.8s
-              const randomDelay = Math.random() * 2; // 0s to 2s
-              const randomHeight = Math.random() * 0.6 + 0.2; // 20% to 80%
+              const randomDuration = Math.random() * 1 + 0.8;
+              const randomDelay = Math.random() * 2;
+              const randomHeight = Math.random() * 0.6 + 0.2;
               return (
                 <div
                   key={`front-equalizer-${i}-${randomDuration}-${randomDelay}`}
@@ -87,7 +134,6 @@ export default function TicketDemo() {
   const ticketBackContent = (
     <div className={styles.ticketLayout}>
       <div className={styles.backRightSection}>
-
         <div className={styles.eventTitle}>
           <h3>PARTY RULES</h3>
         </div>
@@ -148,12 +194,25 @@ export default function TicketDemo() {
           playsInline
           width="100%"
           height="100%"
+          onCanPlayThrough={() => handleAssetLoad('eslenemreVideo')}
+          onError={(e) => {
+            handleAssetLoad('eslenemreVideo');
+          }}
         >
           <source src="/eslenemre.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
   );
+
+  if (isLoading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <div className={styles.loadingSpinner}></div>
+        <div className={styles.loadingText}>Loading your ticket...</div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles['demo-container']}>

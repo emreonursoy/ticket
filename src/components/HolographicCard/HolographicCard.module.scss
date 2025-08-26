@@ -27,6 +27,9 @@
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   transform-origin: center center;
 
+  pointer-events: auto;
+  touch-action: manipulation;
+
   &.flipped {
     transform: rotateY(180deg);
   }
@@ -107,7 +110,10 @@
     0 0 0 1px rgba(255, 255, 255, 0.15);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   transform: translateZ(0);
-  background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary), var(--dark-blue-1), var(--dark-blue-2));
+  
+  pointer-events: auto;
+  touch-action: manipulation;
 
   &::before {
     content: '';
@@ -151,31 +157,40 @@
 }
 
 .cardBack {
-  background: linear-gradient(135deg, #2d1b69, #11998e, #38ef7d, #00d2d3);
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary), var(--dark-blue-1), var(--dark-blue-2));
   transform: rotateY(180deg);
 
   &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background:
       radial-gradient(
-        circle at 80% 80%,
-        rgba(255, 119, 198, 0.4) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 20% 20%,
+        circle at 20% 80%,
         rgba(120, 119, 198, 0.4) 0%,
         transparent 50%
       ),
       radial-gradient(
-        circle at 60% 60%,
-        rgba(120, 219, 255, 0.3) 0%,
+        circle at 80% 20%,
+        rgba(255, 119, 198, 0.4) 0%,
         transparent 50%
       ),
       radial-gradient(
         circle at 40% 40%,
+        rgba(120, 219, 255, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 60% 60%,
         rgba(255, 215, 0, 0.2) 0%,
         transparent 50%
       );
+    pointer-events: none;
+    transition: all 0.6s ease;
+    z-index: 1;
   }
 }
 
@@ -351,13 +366,196 @@
   }
 }
 
+.mobile {
+  .card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    .cardFace {
+      pointer-events: auto;
+      touch-action: manipulation;
+      
+      &.cardBack {
+        pointer-events: auto;
+        touch-action: manipulation;
+      }
+    }
+    
+    .holographicOverlay {
+      opacity: 0.15;
+      background-size: 150% 150%;
+      animation: mobile-holographic-shift 4s ease-in-out infinite;
+    }
+    
+    .rainbowReflection {
+      opacity: 0.12;
+      background-size: 150% 100%;
+      animation: mobile-rainbow-sweep 3s ease-in-out infinite;
+    }
+    
+    .lightReflection {
+      opacity: 0.15;
+      background-size: 150% 150%;
+      animation: mobile-light-sweep 5s ease-in-out infinite;
+    }
+  }
+}
+
+.touchActive {
+  .holographicOverlay {
+    opacity: 0.25 !important;
+    transform: translateZ(4px) scale(1.05);
+  }
+  
+  .rainbowReflection {
+    opacity: 0.2 !important;
+    transform: translateZ(5px) scale(1.05);
+  }
+  
+  .lightReflection {
+    opacity: 0.25 !important;
+    transform: translateZ(6px) scale(1.05);
+  }
+  
+  .depthShadow {
+    opacity: 0.15;
+    transform: translateZ(-8px) scale(1.1);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    animation: touch-ripple 0.6s ease-out;
+  }
+}
+
+@keyframes touch-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-holographic-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.15;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.25;
+  }
+}
+
+@keyframes mobile-rainbow-sweep {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.12;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.18;
+  }
+}
+
+@keyframes mobile-light-sweep {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.15;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.22;
+  }
+}
+
+@keyframes mobile-touch-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.mobile .cardContainer {
+  perspective: 1000px;
+  
+  .card {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+    
+    &.touchActive::before {
+      opacity: 1;
+      animation: mobile-touch-ripple 0.6s ease-out;
+    }
+  }
+}
+
+.mobileDebug {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--white);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: monospace;
+  text-align: center;
+  z-index: 1000;
+  
+  div {
+    margin: 2px 0;
+  }
+  
+  @media (max-width: 768px) {
+    top: -50px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+}
+
 .flipHint {
   position: absolute;
   bottom: -45px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1rem;
-  color: #999;
+  color: var(--gray);
   text-align: center;
   opacity: 0.8;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -366,7 +564,7 @@
 
   &:hover {
     opacity: 1;
-    color: #ffffff;
+    color: var(--white);
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
     transform: translateX(-50%) scale(1.1);
   }

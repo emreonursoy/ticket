@@ -1,3 +1,65 @@
+/* CSS Custom Properties (Variables) for Colors */
+:root {
+  /* Primary Colors */
+  --red: #ff0000;
+  --red-light: #ff6b6b;
+  --red-dark: #cc0000;
+  
+  /* Secondary Colors */
+  --blue: #0000ff;
+  --blue-light: #4ecdc4;
+  --blue-dark: #45b7d1;
+  
+  /* Accent Colors */
+  --green: #00ff00;
+  --green-light: #38ef7d;
+  --green-dark: #11998e;
+  
+  /* Neutral Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #808080;
+  --gray-light: #b8b8b8;
+  --gray-dark: #2a2a2a;
+  
+  /* Holographic Colors */
+  --purple: #5f27cd;
+  --purple-light: #9370db;
+  --orange: #ff9f43;
+  --orange-light: #feca57;
+  --pink: #ff9ff3;
+  --cyan: #00d2d3;
+  --yellow: #feca57;
+  
+  /* Background Colors */
+  --bg-primary: #191919;
+  --bg-secondary: #1a1a2e;
+  --bg-card: #2a2a2a;
+  --bg-overlay: rgba(0, 0, 0, 0.3);
+  
+  /* Additional Colors */
+  --gray-lighter: #e0e0e0;
+  --gray-medium: #d0d0d0;
+  --gray-darker: #666;
+  --gray-very-light: #f0f0f0;
+  --gray-dark-medium: #333;
+  --gray-light-medium: #c0c0c0;
+  --gray-very-dark: #1a1a1a;
+  
+  /* Spotify Colors */
+  --spotify-green: #1db954;
+  --spotify-green-light: #1ed760;
+  
+  /* Sky Colors */
+  --sky-blue: #87ceeb;
+  --hot-pink: #ff69b4;
+  --medium-purple: #9370db;
+  
+  /* Dark Blues */
+  --dark-blue-1: #16213e;
+  --dark-blue-2: #0f3460;
+}
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -14,8 +76,8 @@ body {
 }
 
 .app-body {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: var(--white);
   min-height: 100vh;
 }
 
@@ -59,16 +121,16 @@ body {
 .holographic-gradient {
   background: linear-gradient(
     45deg,
-    #ff6b6b,
-    #4ecdc4,
-    #45b7d1,
-    #96ceb4,
-    #feca57,
-    #ff9ff3,
-    #54a0ff,
-    #5f27cd,
-    #00d2d3,
-    #ff9f43
+    var(--red-light),
+    var(--blue-light),
+    var(--blue-dark),
+    var(--green-light),
+    var(--orange-light),
+    var(--pink),
+    var(--blue),
+    var(--purple),
+    var(--cyan),
+    var(--orange)
   );
   background-size: 400% 400%;
   animation: holographic-shift 3s ease-in-out infinite;
