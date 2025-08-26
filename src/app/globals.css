@@ -1,0 +1,129 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-body {
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Main container styles */
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ticket-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .ticket-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Enhanced holographic effects */
+.holographic-gradient {
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #feca57,
+    #ff9ff3,
+    #54a0ff,
+    #5f27cd,
+    #00d2d3,
+    #ff9f43
+  );
+  background-size: 400% 400%;
+  animation: holographic-shift 3s ease-in-out infinite;
+}
+
+@keyframes holographic-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Enhanced card flip animations */
+.card-flip {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Additional holographic overlay for better visibility */
+.holographic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(
+      45deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.1) 40%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.1) 60%,
+      transparent 80%
+    );
+  background-size: 300% 300%;
+  animation: holographic-shift 4s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
