@@ -272,7 +272,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/holograph_bg.png');
+  background-image: url('/holograph_bg_reverse.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -281,7 +281,6 @@
   pointer-events: none;
   z-index: 999;
   mix-blend-mode: overlay;
-  transform: scaleX(-1);
 }
 
 .depthShadow {

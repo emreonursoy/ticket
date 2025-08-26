@@ -87,28 +87,6 @@ export default function TicketDemo() {
   const ticketBackContent = (
     <div className={styles.ticketLayout}>
       <div className={styles.backRightSection}>
-        <div className={styles.backTicketPass}>
-          <div className={styles.equalizer}>
-            {Array.from({ length: 40 }, (_, i) => {
-              const randomDuration = Math.random() * 1 + 0.8; // 0.8s to 1.8s
-              const randomDelay = Math.random() * 2; // 0s to 2s
-              const randomHeight = Math.random() * 0.6 + 0.2; // 20% to 80%
-              return (
-                <div
-                  key={i}
-                  className={styles.bar}
-                  style={
-                    {
-                      animationDuration: `${randomDuration}s`,
-                      animationDelay: `${randomDelay}s`,
-                      '--random-height': `${randomHeight * 1}%`,
-                    } as React.CSSProperties
-                  }
-                ></div>
-              );
-            })}
-          </div>
-        </div>
 
         <div className={styles.eventTitle}>
           <h3>PARTY RULES</h3>

@@ -121,7 +121,7 @@
   align-items: center;
 
   @media (max-width: 768px) {
-    border-radius: 15px 0 0 15px;
+    border-radius: 0 15px 15px 0;
   }
 }
 
@@ -145,16 +145,12 @@
   flex: 0 0 65%; // Exactly 65% width as in the image
   background: #2a2a2a; // Dark charcoal background
   position: relative;
-  padding: 30px 30px 30px 120px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 25px 0 0 25px;
 
-  @media (max-width: 768px) {
-    border-radius: 0 15px 15px 0;
-    padding: 30px 30px 30px 120px;
-  }
 }
 
 // Cityscape styles
@@ -589,7 +585,7 @@
     transform: translateX(8px);
 
     .ruleBullet {
-      color: #38ef7d;
+      color: #ffffff;
       transform: scale(1.2);
     }
 
@@ -610,7 +606,7 @@
 }
 
 .ruleBullet {
-  color: #38ef7d;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1;
