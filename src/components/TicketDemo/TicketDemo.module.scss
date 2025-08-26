@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  
+
   @media (max-width: 768px) {
     padding: 10px;
     width: 100%;
@@ -26,7 +26,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: title-shift 4s ease-in-out infinite;
-  
+
   @media (max-width: 768px) {
     font-size: 2rem;
     margin-bottom: 0.5rem;
@@ -40,7 +40,7 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     margin-bottom: 1.5rem;
@@ -54,7 +54,7 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  
+
   @media (max-width: 768px) {
     margin-top: 2rem;
     max-width: 80vw;
@@ -81,7 +81,8 @@
 }
 
 @keyframes title-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -102,7 +103,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 25px 0 0 25px;
-  
+
   @media (max-width: 768px) {
     border-radius: 15px 0 0 15px;
   }
@@ -116,7 +117,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   @media (max-width: 768px) {
     border-radius: 15px 0 0 15px;
   }
@@ -131,7 +132,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0 25px 25px 0;
-  
+
   @media (max-width: 768px) {
     border-radius: 0 15px 15px 0;
     padding: 20px;
@@ -147,7 +148,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 25px 0 0 25px;
-  
+
   @media (max-width: 768px) {
     border-radius: 0 15px 15px 0;
     padding: 20px;
@@ -159,7 +160,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  background: linear-gradient(to bottom, #87CEEB 0%, #FF69B4 50%, #9370DB 100%);
+  background: linear-gradient(to bottom, #87ceeb 0%, #ff69b4 50%, #9370db 100%);
 }
 
 .sky {
@@ -174,7 +175,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     radial-gradient(2px 2px at 20px 30px, white, transparent),
     radial-gradient(2px 2px at 40px 70px, white, transparent),
     radial-gradient(1px 1px at 90px 40px, white, transparent),
@@ -193,7 +194,7 @@
   height: 40%;
   background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
   border-radius: 4px;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -205,7 +206,7 @@
     background: #f0f0f0;
     border-radius: 50%;
   }
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -230,28 +231,28 @@
   position: absolute;
   bottom: 0;
   background: #333;
-  
+
   &.building1 {
     left: 10%;
     width: 15%;
     height: 40%;
     background: #0066cc;
   }
-  
+
   &.building2 {
     left: 30%;
     width: 12%;
     height: 35%;
     background: #ffcc00;
   }
-  
+
   &.building3 {
     right: 25%;
     width: 18%;
     height: 45%;
     background: #cc0000;
   }
-  
+
   &.building4 {
     right: 10%;
     width: 14%;
@@ -263,7 +264,7 @@
 .eventTitle {
   margin-bottom: 20px;
   text-align: left;
-  
+
   h3 {
     font-size: 1.2rem;
     font-weight: 700;
@@ -272,7 +273,7 @@
     line-height: 1;
     text-align: left;
   }
-  
+
   @media (max-width: 768px) {
     h1 {
       font-size: 1.8rem;
@@ -369,14 +370,15 @@
 .bar {
   flex: 1;
   min-width: 10px;
-  background: linear-gradient(to top, #0055A4, #FF0000);
+  background: linear-gradient(to top, #0055a4, #ff0000);
   border-radius: 2px;
   animation: equalize 1.5s ease-in-out infinite;
   --random-height: 50%;
 }
 
 @keyframes equalize {
-  0%, 100% {
+  0%,
+  100% {
     height: 15%;
   }
   25% {
@@ -394,7 +396,7 @@
 .backHeader {
   text-align: center;
   margin-bottom: 25px;
-  
+
   @media (max-width: 768px) {
     margin-bottom: 15px;
   }
@@ -410,10 +412,10 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: title-shift 4s ease-in-out infinite;
-  text-shadow: 
+  text-shadow:
     0 0 30px rgba(56, 239, 125, 0.3),
     0 0 60px rgba(56, 239, 125, 0.1);
-  
+
   @media (max-width: 768px) {
     font-size: 1.8rem;
     margin-bottom: 8px;
@@ -427,7 +429,7 @@
   text-align: center;
   margin-bottom: 25px;
   font-weight: 500;
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     line-height: 1.5;
@@ -440,7 +442,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  
+
   @media (max-width: 768px) {
     margin-bottom: 15px;
   }
@@ -453,7 +455,7 @@
   padding-left: 25px;
   position: relative;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  
+
   &::before {
     content: '✦';
     position: absolute;
@@ -463,23 +465,23 @@
     font-size: 1.2rem;
     text-shadow: 0 0 10px rgba(56, 239, 125, 0.5);
   }
-  
+
   &:hover {
     color: #ffffff;
     transform: translateX(12px) translateZ(10px);
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    
+
     &::before {
       transform: scale(1.2) rotate(15deg);
       text-shadow: 0 0 20px rgba(56, 239, 125, 0.8);
     }
   }
-  
+
   @media (max-width: 768px) {
     font-size: 0.9rem;
     margin-bottom: 8px;
     padding-left: 20px;
-    
+
     &:hover {
       transform: translateX(8px) translateZ(5px);
     }
@@ -489,7 +491,7 @@
 .ticketFooter {
   text-align: center;
   margin-top: 25px;
-  
+
   @media (max-width: 768px) {
     margin-top: 15px;
   }
@@ -500,7 +502,7 @@
   color: #b8b8b8;
   letter-spacing: 2px;
   font-weight: 600;
-  
+
   @media (max-width: 768px) {
     font-size: 0.9rem;
     letter-spacing: 1px;
@@ -512,7 +514,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 25px 0 0 25px;
-  
+
   @media (max-width: 768px) {
     border-radius: 15px 0 0 15px;
   }
@@ -533,7 +535,7 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border-radius: 25px 0 0 25px;
-  
+
   @media (max-width: 768px) {
     border-radius: 15px 0 0 15px;
   }
@@ -544,7 +546,7 @@
   font-weight: 600;
   margin-bottom: 15px;
   text-align: center;
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     margin-bottom: 10px;
@@ -554,7 +556,7 @@
 .fallbackImage {
   font-size: 3rem;
   opacity: 0.8;
-  
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
@@ -567,7 +569,7 @@
   flex-direction: column;
   gap: 8px;
   text-align: left;
-  
+
   @media (max-width: 768px) {
     margin-bottom: 15px;
     gap: 6px;
@@ -580,25 +582,25 @@
   gap: 12px;
   padding: 6px 0;
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateX(8px);
-    
+
     .ruleBullet {
       color: #38ef7d;
       transform: scale(1.2);
     }
-    
+
     .ruleText {
       color: #ffffff;
       text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
     }
   }
-  
+
   @media (max-width: 768px) {
     gap: 10px;
     padding: 5px 0;
-    
+
     &:hover {
       transform: translateX(6px);
     }
@@ -613,7 +615,7 @@
   margin-top: 2px;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  
+
   @media (max-width: 768px) {
     font-size: 1rem;
     margin-top: 1px;
@@ -626,7 +628,7 @@
   font-weight: 400;
   line-height: 1.4;
   transition: all 0.3s ease;
-  
+
   @media (max-width: 768px) {
     font-size: 0.8rem;
     line-height: 1.3;
@@ -634,12 +636,12 @@
 }
 
 .spotifyLink {
-  color: #1DB954;
+  color: #1db954;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
-  
+
   &:hover {
     color: #1ed760;
     border-bottom-color: #1ed760;

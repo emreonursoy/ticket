@@ -3,7 +3,7 @@
   margin: 0 auto;
   perspective: 1500px;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
-  
+
   @media (max-width: 768px) {
     perspective: 1000px;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
@@ -26,61 +26,65 @@
   transform-style: preserve-3d;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   transform-origin: center center;
-  
+
   &.flipped {
     transform: rotateY(180deg);
   }
-  
+
   &.hovered {
-    transform: scale(1.05) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-    
+    transform: scale(1.05) rotateX(var(--tilt-x, 0deg))
+      rotateY(var(--tilt-y, 0deg));
+
     .holographicOverlay {
       opacity: 0.8;
       animation: holographic-shift 3.5s ease-in-out infinite;
     }
-    
+
     .rainbowReflection {
       opacity: 1;
       animation: rainbow-sweep 4s ease-in-out infinite;
     }
-    
+
     .lightReflection {
       opacity: 1;
       animation: light-sweep 5s ease-in-out infinite;
-      transform: translateX(calc(var(--mouse-x) * 0.1px)) translateY(calc(var(--mouse-y) * 0.1px));
+      transform: translateX(calc(var(--mouse-x) * 0.1px))
+        translateY(calc(var(--mouse-y) * 0.1px));
     }
-    
+
     .depthShadow {
       opacity: 0.8;
-      transform: translateX(calc(var(--mouse-x) * 0.05px)) translateY(calc(var(--mouse-y) * 0.05px));
+      transform: translateX(calc(var(--mouse-x) * 0.05px))
+        translateY(calc(var(--mouse-y) * 0.05px));
     }
-    
+
     .hoverImage {
       opacity: 0.1;
     }
 
     .hoverImageBack {
-        opacity: 0.1;
-      }
-    
+      opacity: 0.1;
+    }
+
     .cardFace {
-      box-shadow: 
+      box-shadow:
         0 35px 70px rgba(0, 0, 0, 0.5),
         0 0 0 2px rgba(255, 255, 255, 0.2);
     }
-    
+
     .cardContent,
     .backContent {
       transform: translateZ(20px);
     }
   }
-  
+
   @media (max-width: 768px) {
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    
+
     &.hovered {
-      transform: scale(1.02) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-      
+      transform: scale(1.02) rotateX(var(--tilt-x, 0deg))
+        rotateY(var(--tilt-y, 0deg));
+
       .cardContent,
       .backContent {
         transform: translateZ(10px);
@@ -98,13 +102,13 @@
   backface-visibility: hidden;
   border-radius: 25px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 25px 50px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(255, 255, 255, 0.15);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   transform: translateZ(0);
   background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -112,19 +116,35 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 60% 60%, rgba(255, 215, 0, 0.2) 0%, transparent 50%);
+    background:
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(120, 119, 198, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 119, 198, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(120, 219, 255, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 60% 60%,
+        rgba(255, 215, 0, 0.2) 0%,
+        transparent 50%
+      );
     pointer-events: none;
     transition: all 0.6s ease;
     z-index: 1;
   }
-  
+
   @media (max-width: 768px) {
     border-radius: 15px;
-    box-shadow: 
+    box-shadow:
       0 15px 30px rgba(0, 0, 0, 0.4),
       0 0 0 1px rgba(255, 255, 255, 0.15);
   }
@@ -133,13 +153,29 @@
 .cardBack {
   background: linear-gradient(135deg, #2d1b69, #11998e, #38ef7d, #00d2d3);
   transform: rotateY(180deg);
-  
+
   &::before {
-    background: 
-      radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 20% 20%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 60% 60%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.2) 0%, transparent 50%);
+    background:
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(255, 119, 198, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(120, 119, 198, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 60% 60%,
+        rgba(120, 219, 255, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(255, 215, 0, 0.2) 0%,
+        transparent 50%
+      );
   }
 }
 
@@ -149,15 +185,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(
-      45deg,
-      transparent 25%,
-      rgba(255, 255, 255, 0.08) 40%,
-      rgba(255, 255, 255, 0.15) 50%,
-      rgba(255, 255, 255, 0.08) 60%,
-      transparent 75%
-    );
+  background: linear-gradient(
+    45deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.08) 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 60%,
+    transparent 75%
+  );
   background-size: 250% 250%;
   pointer-events: none;
   mix-blend-mode: overlay;
@@ -173,18 +208,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 0, 0, 0.1) 10%,
-      rgba(255, 165, 0, 0.1) 20%,
-      rgba(255, 255, 0, 0.1) 30%,
-      rgba(0, 255, 0, 0.1) 40%,
-      rgba(0, 0, 255, 0.1) 50%,
-      rgba(238, 130, 238, 0.1) 60%,
-      transparent 100%
-    );
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 0, 0, 0.1) 10%,
+    rgba(255, 165, 0, 0.1) 20%,
+    rgba(255, 255, 0, 0.1) 30%,
+    rgba(0, 255, 0, 0.1) 40%,
+    rgba(0, 0, 255, 0.1) 50%,
+    rgba(238, 130, 238, 0.1) 60%,
+    transparent 100%
+  );
   background-size: 200% 100%;
   pointer-events: none;
   mix-blend-mode: soft-light;
@@ -200,13 +234,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(
-      135deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.1) 50%,
-      transparent 60%
-    );
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
   background-size: 200% 200%;
   pointer-events: none;
   mix-blend-mode: soft-light;
@@ -234,22 +267,22 @@
 }
 
 .hoverImageBack {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('/holograph_bg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.05;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-    z-index: 999;
-    mix-blend-mode: overlay;
-    transform: scaleX(-1)
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/holograph_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 999;
+  mix-blend-mode: overlay;
+  transform: scaleX(-1);
+}
 
 .depthShadow {
   position: absolute;
@@ -257,13 +290,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(
-      ellipse at center,
-      transparent 30%,
-      rgba(0, 0, 0, 0.1) 70%,
-      rgba(0, 0, 0, 0.2) 100%
-    );
+  background: radial-gradient(
+    ellipse at center,
+    transparent 30%,
+    rgba(0, 0, 0, 0.1) 70%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
   pointer-events: none;
   opacity: 0;
   transform: translateZ(-5px);
@@ -273,7 +305,8 @@
 }
 
 @keyframes holographic-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -282,7 +315,8 @@
 }
 
 @keyframes rainbow-sweep {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -291,7 +325,8 @@
 }
 
 @keyframes light-sweep {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
     opacity: 0.3;
   }
@@ -311,7 +346,7 @@
   justify-content: space-between;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   transform: translateZ(10px);
-  
+
   @media (max-width: 768px) {
     transform: translateZ(5px);
   }
@@ -329,18 +364,18 @@
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   font-weight: 600;
-  
+
   &:hover {
     opacity: 1;
     color: #ffffff;
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
     transform: translateX(-50%) scale(1.1);
   }
-  
+
   @media (max-width: 768px) {
     bottom: -35px;
     font-size: 0.9rem;
-    
+
     &:hover {
       transform: translateX(-50%) scale(1.1);
     }

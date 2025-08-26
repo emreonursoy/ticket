@@ -1,1 +1,1 @@
-export { default } from './HolographicCard'
+export { default } from './HolographicCard';

@@ -1,4 +1,4 @@
-import TicketDemo from '@/components/TicketDemo'
+import TicketDemo from '@/components/TicketDemo';
 
 export default function Home() {
   return (
@@ -7,5 +7,5 @@ export default function Home() {
         <TicketDemo />
       </div>
     </main>
-  )
+  );
 }
