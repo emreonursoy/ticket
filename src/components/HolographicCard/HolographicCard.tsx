@@ -117,7 +117,7 @@ export default function HolographicCard({
       setMousePosition({ x: touchX - centerX, y: touchY - centerY });
     };
 
-    const handleTouchEnd = (e: TouchEvent) => {
+    const handleTouchEnd = () => {
       const touchEndTime = Date.now();
       const touchDuration = touchEndTime - touchStartTime;
       
