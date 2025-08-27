@@ -56,7 +56,7 @@ export default function TicketDemo() {
           width="100%"
           height="100%"  
           onCanPlayThrough={() => handleAssetLoad('monalisaVideo')}
-          onError={(e) => {
+          onError={() => {
             handleAssetLoad('monalisaVideo');
           }}
         >
@@ -195,7 +195,7 @@ export default function TicketDemo() {
           width="100%"
           height="100%"
           onCanPlayThrough={() => handleAssetLoad('eslenemreVideo')}
-          onError={(e) => {
+          onError={() => {
             handleAssetLoad('eslenemreVideo');
           }}
         >
